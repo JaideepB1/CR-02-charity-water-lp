@@ -25,7 +25,7 @@ Fonts:
 
 /* Set up the main font and background color for the whole page */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
+  background-color: #000000; /* Soft light blue for a fresh look */
   font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -34,7 +34,7 @@ body {
 
 /* Add a slight shadow and rounded corners to each section for depth */
 section {
-  background: #fff; /* White background for sections */
+  background: #fff7e1; /* Cream background for sections */
   border-radius: 12px; /* Rounded corners */
   box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
   margin: 24px 10px; /* Space between sections */
@@ -44,20 +44,78 @@ section {
 /* Hero Section Styles */
 .hero {
   position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
+  color: #fff7e1;                 /* Cream text for contrast */
+  text-align: left;            /* Left align like screenshot */
+  padding: 84px 20px;          /* Large top padding to feel spacious */
+  border-radius: 0 0 0 0;
+  background-color: #003366; /* deep navy */
+}
 
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+/* Simple container to keep content centered and limit width */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Header / Navigation */
+.site-header {
+  background: #8fb7c6; /* light blue bar like screenshot */
+  padding: 14px 0;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Ensure header inner layout groups items horizontally and allows the nav to push to the right */
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo {
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #fff7e1; /* placeholder box for logo */
+}
+.brand-name {
+  font-weight: 800;
+  color: #082f4f; /* dark navy-ish */
+  font-size: 1.25rem;
+}
+.main-nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* push nav (and donate) to the far right */
+}
+.main-nav a {
+  margin-left: 18px;
+  color: #082f4f; /* dark text on header */
+  text-decoration: none;
+  font-weight: 600;
+}
+.top-donate, .main-nav .nav-donate {
+  background: #fff6e6; /* cream */
+  color: #082f4f;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Use Georgia for top navigation text to match the design */
+.brand-name,
+.main-nav a,
+.top-donate {
+  font-family: Georgia, 'Times New Roman', serif;
 }
 
 /* Make the headline bold and modern */
@@ -69,6 +127,148 @@ section {
   text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
 }
 
+/* Hero inner split layout: copy on left, image on right */
+.hero-inner {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+}
+.hero-copy {
+  flex: 1 1 520px; /* allow resizing */
+  color: #fff7e1;
+  text-align: left;
+}
+.hero-photo-wrap { flex: 0 0 360px; }
+.photo-frame {
+  background: #f8f1e0; /* cream frame */
+  padding: 14px;
+  display: inline-block;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  transform: translateY(-4px);
+}
+.portrait {
+  width: 280px;
+  height: auto;
+  display: block;
+  border: 8px solid #f1eadf; /* inner border to mimic photo mat */
+}
+.hero-title {
+  font-size: 3.2rem; /* large headline */
+  line-height: 1.02;
+  font-weight: 700;
+  margin: 0 0 18px 0;
+  /* Desired headline font: Proxima Nova. Proxima Nova is a commercial font and
+     may not be installed on all systems. We declare it first and provide
+     sensible fallbacks. To use the exact font, add a licensed webfont file
+     and @font-face below (see commented template). */
+  font-family: 'Proxima Nova', 'Proxima', Arial, Helvetica, sans-serif;
+}
+.lede { max-width: 560px; color: rgba(255,247,225,0.92); }
+
+/* Subheadline (lede) should use Avenir Next Arabic where available. This font
+   is also typically licensed; we provide fallbacks. */
+.lede {
+  font-family: 'Avenir Next Arabic', 'Avenir Next', 'Avenir', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* -------------------------------
+   Optional: Host local webfonts
+   -------------------------------
+   If you have licensed font files (WOFF/WOFF2), place them in `fonts/` and
+   uncomment and adjust the @font-face rules below. Example:
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('fonts/ProximaNova-Regular.woff2') format('woff2'),
+       url('fonts/ProximaNova-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir Next Arabic';
+  src: url('fonts/AvenirNextArabic-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+   After adding the files, the browser will use the exact fonts.
+*/
+
+/* CTA pill (left text and right inset button) */
+.cta-pill {
+  display: inline-flex;
+  align-items: center;
+  background: #77a8bb; /* updated to requested brand color */
+  border-radius: 12px;
+  padding: 18px;
+  margin-top: 28px;
+}
+.cta-left {
+  color: #fff7e1;
+  text-decoration: none;
+  padding: 0 36px;
+  font-size: 1.05rem;
+}
+.cta-right {
+  margin-left: 18px;
+  background: #284b70; /* darker inset button */
+  color: #fff7e1;
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.hero { position: relative; }
+
+/* Right-angle triangle placed at the bottom-right of the hero.
+   The triangle is created with clip-path on a square so the right angle sits at the bottom-right corner. */
+.hero::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 520px; /* size of the triangle area; adjust as needed */
+  height: 240px;
+  background: #1a1a1a; /* triangle color */
+  clip-path: polygon(100% 0, 100% 100%, 0 100%); /* triangle with right angle at bottom-right */
+  z-index: 1; /* below the photo-frame which will be z-index: 2 */
+  pointer-events: none;
+}
+
+.hero-photo-wrap { position: relative; z-index: 2; transform: translateX(160px); transition: transform 220ms ease; }
+.photo-frame { position: relative; z-index: 3; }
+.portrait { position: relative; z-index: 4; display:block; }
+
+/* Hide or reduce the triangle on smaller screens so it doesn't overlap awkwardly */
+@media (max-width: 900px) {
+  .hero::before { display: none; }
+}
+
+/* On small screens remove the horizontal nudge so layout stays centered */
+@media (max-width: 700px) {
+  .hero-photo-wrap { transform: none; }
+}
+.lede {
+  font-size: 1.1rem;
+  margin-top: 6px;
+}
+.hero-actions a {
+  margin-right: 12px;
+}
+.learn-button {
+  display: inline-block;
+  background: rgba(255,247,225,0.12);
+  color: #fff7e1;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
 /* Style the subheadline */
 .hero p {
   font-size: 1.2em;
@@ -78,10 +278,16 @@ section {
 
 /* Story Section Styles */
 .story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
-  color: #222;
+  background-color: #77a8bb; /* updated per request */
+  color: #fff7e1;
   text-align: center;
   padding: 30px 20px;
+}
+
+/* Make sure headings and paragraphs inside the story section use the cream color */
+.story h2,
+.story p {
+  color: #fff7e1;
 }
 
 /* Add accent color to section headings */
@@ -93,10 +299,17 @@ h2 {
 
 /* Call-to-Action Section Styles */
 .call-to-action {
-  background-color: #FFC907; /* Primary Yellow */
-  color: #222;
+  background-color: #77a8bb; /* updated to match brand */
+  color: #fff7e1;
   text-align: center;
   padding: 30px 20px;
+}
+
+/* Ensure the heading inside the Call-to-Action section uses the cream color
+   even though global h2 uses a blue accent. This keeps the CTA text readable
+   on the brand-colored background. */
+.call-to-action h2 {
+  color: #fff7e1;
 }
 
 /* Style the impact story image */
@@ -108,11 +321,46 @@ h2 {
   box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
 }
 
+/* Real-World Impact Section: use deep navy background and cream text to match design */
+.impact-story {
+  background-color: #003366; /* deep navy */
+  color: #fff7e1; /* cream text */
+  padding: 28px 16px;
+  border-radius: 12px;
+}
+.impact-story h2,
+.impact-story p {
+  color: #fff7e1;
+}
+
+/* How section: steps laid out side-by-side on wide screens */
+.how .steps {
+  display: flex;
+  gap: 18px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.how .step {
+  background: #fff7e1;
+  border-radius: 10px;
+  padding: 18px;
+  flex: 1 1 260px; /* grow/shrink, min width ~260px */
+  text-align: center;
+  box-shadow: 0 4px 18px rgba(46,157,247,0.06);
+}
+.step-img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
 /* Donate Button Styles */
 .donate-button {
   display: inline-block;
-  background-color: #4FCB53; /* Green */
-  color: #fff;
+  background-color: #003366; /* deep navy per request */
+  color: #fff7e1;
   padding: 14px 32px;
   text-decoration: none;
   border-radius: 6px;
@@ -127,13 +375,21 @@ h2 {
 
 /* Change button color when hovered */
 .donate-button:hover {
-  background-color: #159A48; /* Dark Green */
+  background-color: #002244; /* darker navy for hover */
   transform: translateY(-2px) scale(1.04); /* Slight lift */
 }
 
 /* Add some spacing between sections */
 section {
   margin-bottom: 20px;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 20px 10px;
+  color: #666;
+  font-size: 0.95rem;
 }
 
 /* 
@@ -195,4 +451,12 @@ section {
   .impact-image {
     width: 300px;
   }
+}
+
+/* Responsive tweaks for tablet and small desktop widths */
+@media (max-width: 900px) {
+  .hero-inner { flex-direction: column-reverse; text-align: center; }
+  .hero-copy { text-align: center; }
+  .hero-image { text-align: center; }
+  .main-nav a { color: #2E9DF7; }
 }
